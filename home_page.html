@@ -20,28 +20,51 @@
     const fileInput = document.getElementById('file');
     
     form.addEventListener("submit", function(event) {
-        event.preventDefault();  // Prevent the form from submitting
+        event.preventDefault();  
 
-        const file = fileInput.files[0];  // Get the uploaded file
+        //make sure that the files are not empty 
+        if(fileInput.length < 0){
+            console.log("ERROR NO FILE PROVIDED")
+            return;
+        }
 
+        const file = fileInput.files[0];  
         if (file) {
-            const reader = new FileReader();
+                console.log(file);
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const text = e.target.result; // Get the CSV text content
+                
+                    // Split text by lines, then split each line into an array of values
+                    const rows = text.trim().split("\n").map(row => row.split(","));
+                
+                    // Log the entire parsed CSV as an array of rows
+                    console.log("Parsed Rows (Before Processing):", rows);
+                
+                    // Add NULL to empty rows
+                    rows.forEach((row, index) => {
+                        if (row.every(cell => cell.trim() === "")) {
+                            rows[index] = ["NULL"];
+                        }
+                    });
+                
+                    console.log("Parsed Rows (After Processing):", rows);
+                
+                    // Process each row
+                    rows.forEach((row, index) => {
+                        console.log(`Row ${index}:`, row[5] || "N/A"); // Safely access the 6th column
+                    });
 
-            reader.onload = function(e) {
-                const contents = e.target.result;
-                console.log("File contents:", contents);
-
-                // Optional: Parse the CSV file if it's a CSV format
-                const lines = contents.split('\n');
-                lines.forEach(line => {
-                    console.log(line);  // Print each line of the CSV file
-                });
-            };
-
-            reader.readAsText(file);  // Read the file as text
+                    // Process each row
+                    rows.forEach((row, index) => {
+                        console.log(`Row ${index }:`, row[5]); 
+                    });
+                };
+                reader.readAsText(file);
         } else {
             console.log("No file selected.");
         }
     });
 });</script>
 </html>
+
