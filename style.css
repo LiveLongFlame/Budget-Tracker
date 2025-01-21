@@ -1,0 +1,54 @@
+#background{
+    background-image: url("pictures/gradient_background.jpg"); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    width: 100%; 
+    margin: 0; 
+    padding: 0; 
+}
+
+h1 , body{
+    color: white;
+}
+
+#form {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#file {
+    margin-bottom: 15px;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #9e065d;
+    border-radius: 10px;
+    border-width: 2px;
+    width: 100%;
+}
+
+#upload_file {
+    background-color: #9e065d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#upload_file:hover {
+    background-color: #6b043e;
+}
+
+#upload_file:active {
+    background-color: #910554;
+}
