@@ -56,24 +56,28 @@ h1 , body{
     display: none;
 }
 
-
-#food , #transport{
+#catogories{
+    display: none;
+}
+#food, #transport , #retail , #bills , #home , #other{
     height: 25px;
     background-color: #3498db;
     border-radius: 8px;
     display: flex;
     align-items: center;
-    padding-left: 10px;  
-    animation: food 1.5s ease-in-out forwards;
-    display: flex;
-    align-items: center;
-    position: relative; 
+    padding-left: 10px;
+    overflow: hidden;
+    transition: width 2s ease-in-out;
+    position: relative;
+ 
 }
+
 #food-text {
+    /* todo: fix postion so that its at the edge of the width and not to far needs to work dynamically */
     position: absolute;
-    left: 78%; 
+    left: 80%;
     font-size: 14px;
-    transition: left 1.5s ease-in-out
+    transition: left 2s ease-in-out;
 }
 @keyframes food {
     0% {
@@ -87,9 +91,13 @@ h1 , body{
 
 #transport{
     background-color: orange;
-    animation: transport 1.5s ease-in-out forwards;
 }
-
+#transport-text{
+    position: absolute;
+    left: 80%;
+    font-size: 14px;
+    transition: left 2s ease-in-out;
+}
 @keyframes transport {
     0% {
         width: 100px;
@@ -99,3 +107,85 @@ h1 , body{
         width: 294px;
     }
 }
+
+
+#retail{
+    background-color: purple;
+}
+#retail-text{
+    position: absolute;
+    left: 80%;
+    font-size: 14px;
+    transition: left 2s ease-in-out;
+}
+@keyframes retail {
+    0% {
+        width: 100px;
+   
+    }
+    100% {
+        width: 294px;
+    }
+}
+
+
+#bills{
+    background-color: green;
+}
+#bills-text{
+    position: absolute;
+    left: 80%;
+    font-size: 14px;
+    transition: left 2s ease-in-out;
+}
+@keyframes bills {
+    0% {
+        width: 100px;
+   
+    }
+    100% {
+        width: 294px;
+    }
+}
+
+
+#home{
+    background-color: brown;
+}
+#home-text{
+    position: absolute;
+    left: 80%;
+    font-size: 14px;
+    transition: left 2s ease-in-out;
+}
+@keyframes home {
+    0% {
+        width: 100px;
+   
+    }
+    100% {
+        width: 294px;
+    }
+}
+
+
+#other{
+    background-color: red;
+}
+#other-text{
+    position: absolute;
+    left: 80%;
+    font-size: 14px;
+    transition: left 2s ease-in-out;
+}
+@keyframes other {
+    0% {
+        width: 100px;
+   
+    }
+    100% {
+        width: 294px;
+    }
+}
+
+
