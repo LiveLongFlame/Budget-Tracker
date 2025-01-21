@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                       }
 
                     }
-
+                      const catogories = {"Food": food , "transport":trasport , "personal":personal , "bills":bills , "home":home}
                       console.log("Current account is: ", rows[1][4])
                       console.log("Spent Amount: $" , (spent.toFixed(2) * -1))
                       console.log("With Drawn Amount: $" , (withdrawals.toFixed(2) * -1))
@@ -74,6 +74,29 @@ document.addEventListener('DOMContentLoaded', function() {
                       console.log("Retail & Personal Amount: $" , (personal.toFixed(2) * -1))
                       console.log("Bills & Payments Amount: $" , (bills.toFixed(2) * -1))
                       console.log("Home & Property Amount: $" , (home.toFixed(2) * -1))
+
+                      console.log("\n\n\n")
+
+                      const categoryArray = Object.entries(catogories);
+
+                      // Insertion sort algorithm
+                      for (let i = 1; i < categoryArray.length; i++) {
+                        let key = categoryArray[i];
+                        let j = i - 1;
+                      
+                        // Move elements that are smaller than key[1] one position ahead
+                        while (j >= 0 && categoryArray[j][1] < key[1]) {
+                          categoryArray[j + 1] = categoryArray[j];
+                          j--;
+                        }
+                        categoryArray[j + 1] = key;
+                      }
+                      
+                      // Convert the sorted array back into an object
+                      const sortedCategories = Object.fromEntries(categoryArray);
+                      
+                      console.log(sortedCategories);
+
                 };
                 reader.readAsText(file);
         } else {
