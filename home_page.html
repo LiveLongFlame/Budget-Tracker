@@ -33,32 +33,29 @@
                 console.log(file);
                 const reader = new FileReader();
                 reader.onload = function (e) {
-                    const text = e.target.result; // Get the CSV text content
+                    // Get the CSV text content
+                    const text = e.target.result; 
                 
                     // Split text by lines, then split each line into an array of values
-                    const rows = text.trim().split("\n").map(row => row.split(","));
-                
-                    // Log the entire parsed CSV as an array of rows
-                    console.log("Parsed Rows (Before Processing):", rows);
-                
-                    // Add NULL to empty rows
-                    rows.forEach((row, index) => {
-                        if (row.every(cell => cell.trim() === "")) {
-                            rows[index] = ["NULL"];
-                        }
-                    });
-                
-                    console.log("Parsed Rows (After Processing):", rows);
-                
-                    // Process each row
-                    rows.forEach((row, index) => {
-                        console.log(`Row ${index}:`, row[5] || "N/A"); // Safely access the 6th column
-                    });
+                    const lines = text.split("\n");
+                    const rows = [];
 
-                    // Process each row
-                    rows.forEach((row, index) => {
-                        console.log(`Row ${index }:`, row[5]); 
-                    });
+                    for (let i = 0; i < lines.length; i++) {
+                      const elements = lines[i].split(',').map(value => value === "" ? "NULL" : value);
+                      rows.push(elements);
+                    }
+                    //console.log(text); 
+
+                    // Processing the information and caluating the total amount of money
+                    console.log("this is the paid amount");
+                    let total = 0;
+                    for (let i = 1; i < rows.length; i++) {
+                      if (!isNaN(Number(rows[i][2]))) {
+                        total += Number(rows[i][2]);
+                      }
+                    }
+
+                      console.log("the total amount spent  is: $" , (total.toFixed(2) * -1))
                 };
                 reader.readAsText(file);
         } else {
