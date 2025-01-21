@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Tracker</title>
+   
+</head>
+<body>
     <h1>Upload File</h1>
-    <form method="post" action="" enctype="multipart/form-data">
-        <input type="file">
+    <form id="form" method="post" action="" enctype="multipart/form-data">
+        <input id="file" type="file">
         <br><br>
         <button id="upload_file" type="submit">Upload File</button>
     </form>
+</body>
+
+<script >document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('form');
+    const fileInput = document.getElementById('file');
+    
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();  // Prevent the form from submitting
+
+        const file = fileInput.files[0];  // Get the uploaded file
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const contents = e.target.result;
+                console.log("File contents:", contents);
+
+                // Optional: Parse the CSV file if it's a CSV format
+                const lines = contents.split('\n');
+                lines.forEach(line => {
+                    console.log(line);  // Print each line of the CSV file
+                });
+            };
+
+            reader.readAsText(file);  // Read the file as text
+        } else {
+            console.log("No file selected.");
+        }
+    });
+});</script>
 </html>
