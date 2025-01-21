@@ -52,3 +52,50 @@ h1 , body{
 #upload_file:active {
     background-color: #910554;
 }
+#total_spent , #current_amount{
+    display: none;
+}
+
+
+#food , #transport{
+    height: 25px;
+    background-color: #3498db;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;  
+    animation: food 1.5s ease-in-out forwards;
+    display: flex;
+    align-items: center;
+    position: relative; 
+}
+#food-text {
+    position: absolute;
+    left: 78%; 
+    font-size: 14px;
+    transition: left 1.5s ease-in-out
+}
+@keyframes food {
+    0% {
+        width: 100px;
+   
+    }
+    100% {
+        width: 1000px;
+    }
+}
+
+#transport{
+    background-color: orange;
+    animation: transport 1.5s ease-in-out forwards;
+}
+
+@keyframes transport {
+    0% {
+        width: 100px;
+   
+    }
+    100% {
+        width: 294px;
+    }
+}

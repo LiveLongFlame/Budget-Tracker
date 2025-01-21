@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const file = fileInput.files[0];  
         if (file) {
-                console.log(file);
+
                 const reader = new FileReader();
                 reader.onload = function (e) {
                     // Get the CSV text content
@@ -96,6 +96,22 @@ document.addEventListener('DOMContentLoaded', function() {
                       const sortedCategories = Object.fromEntries(categoryArray);
                       
                       console.log(sortedCategories);
+
+
+                    
+                    const amount_text = document.getElementById("total_spent");
+                    const current_amount_text = document.getElementById("current_amount")
+                    amount_text.style.display = "block";
+                    current_amount_text.style.display = "block";
+                    //prints out the total amount spent onto the html page
+                    const amount = document.getElementById("amount");
+                    amount.textContent = spent.toFixed(2) * -1;
+                    
+                    const current = document.getElementById("current")
+                    current.textContent = rows[1][4];
+                    
+                    //Catogorire side bar: 
+                    
 
                 };
                 reader.readAsText(file);
