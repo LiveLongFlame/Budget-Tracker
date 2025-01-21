@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     }
 
+                      console.log("Current account is: ", rows[1][4])
                       console.log("Spent Amount: $" , (spent.toFixed(2) * -1))
                       console.log("With Drawn Amount: $" , (withdrawals.toFixed(2) * -1))
                       console.log("Food & Beverage Amount: $" , (food.toFixed(2) * -1))
