@@ -36,9 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     let home = 0;
                     let retail = 0;
                     let other = 0;
-                    
+                    let income =0;
                     //* Goes through each catogory of data and sets the values according to its catogotrie
                     for (let i = 0; i < rows.length; i++) {
+                      console.log(rows[i][5] , " amount " , rows[i][2])
                       if (!isNaN(Number(rows[i][2])) && rows[i][5] != "Withdrawals & Transfers") {
                         spent += Number(rows[i][2]);
                       }else if(!isNaN(Number(rows[i][2])) && rows[i][5] == "Withdrawals & Transfers"){
@@ -54,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         bills += Number(rows[i][2]);
                       }else if(!isNaN(Number(rows[i][2])) && rows[i][5] == "Home & Property"){
                         home += Number(rows[i][2]);
+                      }else if(!isNaN(Number(rows[i][3])) && rows[i][5] == "Income" ||  rows[i][5] == "Deposits"){
+                        income += Number(rows[i][3]);
                       }else{
                         other += Number(rows[i][2]);
                       }
@@ -62,7 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
                       other = 0;
                     }
 
-                      const catogories = {"food": food , "transport":transport , "retail":retail , "bills":bills , "home":home ,"other":other}
+                      console.log(income)
+                      const catogories = {"food": food ,  "income":income, "transport":transport , "retail":retail , "bills":bills , "home":home ,"other":other }
                       const categoryArray = Object.entries(catogories);
 
                       //* Insertion sort algorithm to orgainse array 
@@ -80,6 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
                       
                       // Convert the sorted array back into an object
                       const sortedCategories = Object.fromEntries(categoryArray);
+
+                      console.log(sortedCategories)
                      //Shows the information when the user enters a valid file
                     const amount_text = document.getElementById("total_spent");
                     const current_amount_text = document.getElementById("current_amount")
@@ -166,4 +172,8 @@ function home_info(){
 
 function other_info(){
   console.log("Hello this is the other_info")
+}
+
+function income_info(){
+  console.log("Hell this is the income_info")
 }

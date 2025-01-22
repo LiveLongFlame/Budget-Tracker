@@ -64,7 +64,7 @@ h1 , body{
     --my-start-width: 100px;
     --my-end-width: 1350px;
 }
-#food, #transport , #retail , #bills , #home , #other{
+#food, #transport , #retail , #bills , #home , #other , #income{
     height: 40px;
     background-color: transparent;
     border-color: #3498db;
@@ -80,7 +80,7 @@ h1 , body{
  
 }
 
-#food-text  , #transport-text , #retail-text , #bills-text , #home-text , #other-text{
+#food-text  , #transport-text , #retail-text , #bills-text , #home-text , #other-text , #income-text{
     position: absolute;
     right: 0; 
     font-size: 14px;
@@ -174,7 +174,21 @@ h1 , body{
         width: var(--my-end-width);
     }
 }
-
+#income{
+    border-color: #5a2f3e;
+}
+#income:hover {
+    box-shadow: inset 0 -3.25em 0 0 #5a2f3e;  
+}
+@keyframes other {
+    0% {
+        width: var(--my-start-width);
+   
+    }
+    100% {
+        width: var(--my-end-width);
+    }
+}
 
 #other{
     border-color: #3498dd;
