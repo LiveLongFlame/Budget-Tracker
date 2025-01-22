@@ -59,8 +59,13 @@ h1 , body{
 #catogories{
     display: none;
 }
+
+:root{
+    --my-start-width: 100px;
+    --my-end-width: 1350px;
+}
 #food, #transport , #retail , #bills , #home , #other{
-    height: 25px;
+    height: 40px;
     background-color: #3498db;
     border-radius: 8px;
     display: flex;
@@ -72,39 +77,35 @@ h1 , body{
  
 }
 
-#food-text {
-    /* todo: fix postion so that its at the edge of the width and not to far needs to work dynamically */
+#food-text  , #transport-text , #retail-text , #bills-text , #home-text , #other-text{
     position: absolute;
-    left: 80%;
+    right: 0; 
     font-size: 14px;
-    transition: left 2s ease-in-out;
+    transition: right 2s ease-in-out; 
+    padding-right: 5px; 
+    padding-top: 25px;
 }
 @keyframes food {
     0% {
-        width: 100px;
+        width: var(--my-start-width);
    
     }
     100% {
-        width: 1000px;
+        width: var(--my-end-width);
     }
 }
 
 #transport{
     background-color: orange;
 }
-#transport-text{
-    position: absolute;
-    left: 80%;
-    font-size: 14px;
-    transition: left 2s ease-in-out;
-}
+
 @keyframes transport {
     0% {
-        width: 100px;
+        width: var(--my-start-width);
    
     }
     100% {
-        width: 294px;
+        width: var(--my-end-width);
     }
 }
 
@@ -112,19 +113,14 @@ h1 , body{
 #retail{
     background-color: purple;
 }
-#retail-text{
-    position: absolute;
-    left: 80%;
-    font-size: 14px;
-    transition: left 2s ease-in-out;
-}
+
 @keyframes retail {
     0% {
-        width: 100px;
+        width: var(--my-start-width);
    
     }
     100% {
-        width: 294px;
+        width: var(--my-end-width);
     }
 }
 
@@ -132,19 +128,14 @@ h1 , body{
 #bills{
     background-color: green;
 }
-#bills-text{
-    position: absolute;
-    left: 80%;
-    font-size: 14px;
-    transition: left 2s ease-in-out;
-}
+
 @keyframes bills {
     0% {
-        width: 100px;
+        width: var(--my-start-width);
    
     }
     100% {
-        width: 294px;
+        width: var(--my-end-width);
     }
 }
 
@@ -152,19 +143,14 @@ h1 , body{
 #home{
     background-color: brown;
 }
-#home-text{
-    position: absolute;
-    left: 80%;
-    font-size: 14px;
-    transition: left 2s ease-in-out;
-}
+
 @keyframes home {
     0% {
-        width: 100px;
+        width: var(--my-start-width);
    
     }
     100% {
-        width: 294px;
+        width: var(--my-end-width);
     }
 }
 
@@ -172,19 +158,14 @@ h1 , body{
 #other{
     background-color: red;
 }
-#other-text{
-    position: absolute;
-    left: 80%;
-    font-size: 14px;
-    transition: left 2s ease-in-out;
-}
+
 @keyframes other {
     0% {
-        width: 100px;
+        width: var(--my-start-width);
    
     }
     100% {
-        width: 294px;
+        width: var(--my-end-width);
     }
 }
 
