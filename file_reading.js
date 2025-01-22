@@ -83,8 +83,10 @@ document.addEventListener('DOMContentLoaded', function() {
                      //Shows the information when the user enters a valid file
                     const amount_text = document.getElementById("total_spent");
                     const current_amount_text = document.getElementById("current_amount")
+                    const withdrawn_info = document.getElementById("withdrawn")
                     amount_text.style.display = "block";
                     current_amount_text.style.display = "block";
+                    withdrawn_info.style.display = "block";
 
                     //prints out the total amount spent onto the html page
                     const amount = document.getElementById("amount");
@@ -92,7 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     //prints out the amount currenlty inside the account
                     const current = document.getElementById("current")
                     current.textContent = rows[1][4];
-                  
+                      
+                    //prints out withdrawn amoutn of money
+                    const withdrawn = document.getElementById("withdrwan_amount")
+                    withdrawn.textContent = withdrawals *-1;
                     //*Catogorire side bar: 
                     //* in order to get the difference of each catogorire we divide the largest value of index 0(1)
                     //*by the next index 1(i+1). 
@@ -123,10 +128,42 @@ document.addEventListener('DOMContentLoaded', function() {
                       graph(key , entries[0][1], value);
                       console.log(`Key: ${key}, Value: ${value}`);
                     }
+
+
+
+                    
+                    
                 };
                 reader.readAsText(file);
+                
         } else {
             console.log("No file selected.");
         }
     });
 });
+
+
+
+function food_info(){
+  console.log("Hello this is the food_info")
+}
+
+function transport_info(){
+  console.log("Hello this is the transport_info")
+}
+
+function retail_info(){
+  console.log("Hello this is the retail_info")
+}
+
+function bills_info(){
+  console.log("Hello this is the bills_info")
+}
+
+function home_info(){
+  console.log("Hello this is the home_info")
+}
+
+function other_info(){
+  console.log("Hello this is the other_info")
+}
