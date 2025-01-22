@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
                       const elements = lines[i].split(',').map(value => value === "" ? "NULL" : value);
                       rows.push(elements);
                     }
-                    //console.log(text); 
 
                     // Processing the information and caluating the total amount of money
                     let spent= 0;
@@ -40,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     let personal = 0;
                     let other = 0;
                     
+                    //* Goes through each catogory of data and sets the values according to its catogotrie
                     for (let i = 0; i < rows.length; i++) {
                       if (!isNaN(Number(rows[i][2])) && rows[i][5] != "Withdrawals & Transfers") {
                         spent += Number(rows[i][2]);
@@ -62,9 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     }
                     if(isNaN(other)){
-                      other =0;
+                      other = 0;
                     }
                       const catogories = {"food": food , "transport":trasport , "personal":personal , "bills":bills , "home":home ,"other":other}
+                      /////////////////////////TESTING ONLY////////////////////////////////////////
                       console.log("Current account is: ", rows[1][4])
                       console.log("Spent Amount: $" , (spent.toFixed(2) * -1))
                       console.log("With Drawn Amount: $" , (withdrawals.toFixed(2) * -1))
@@ -74,12 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
                       console.log("Bills & Payments Amount: $" , (bills.toFixed(2) * -1))
                       console.log("Home & Property Amount: $" , (home.toFixed(2) * -1))
                       console.log("Other Amount: $" , other.toFixed(2))
-
+                      //////////////////////////////////////////////////////////////////////////
                       console.log("\n\n\n")
 
                       const categoryArray = Object.entries(catogories);
 
-                      // Insertion sort algorithm
+                      // Insertion sort algorithm to orgainse array 
                       for (let i = 1; i < categoryArray.length; i++) {
                         let key = categoryArray[i];
                         let j = i - 1;
@@ -95,14 +96,16 @@ document.addEventListener('DOMContentLoaded', function() {
                       // Convert the sorted array back into an object
                       const sortedCategories = Object.fromEntries(categoryArray);
                       
+                      /////////////////
                       console.log(sortedCategories);
+                      /////////////////////
 
-
-                    
+                    //Shows the information when the user enters a valid file
                     const amount_text = document.getElementById("total_spent");
                     const current_amount_text = document.getElementById("current_amount")
                     amount_text.style.display = "block";
                     current_amount_text.style.display = "block";
+
                     //prints out the total amount spent onto the html page
                     const amount = document.getElementById("amount");
                     amount.textContent = spent.toFixed(2) * -1;
@@ -121,8 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     //*then we divide that difference of the max which would be 1000px
                     //*you keep going untill its done
                       // Create a style element to inject dynamic CSS
-                      const style = document.createElement('style');
-                      document.head.appendChild(style);
+                    const style = document.createElement('style');
+                    document.head.appendChild(style);
                     function updateKeyframes(table_name , max) {
                       const keyframes = `
                           @keyframes ${table_name} {
@@ -153,7 +156,8 @@ document.addEventListener('DOMContentLoaded', function() {
                   //show data: 
                   const cataogores_data = document.getElementById("catogories")
                   cataogores_data.style.display = "block";
-
+                   // Calculate max width, handling division by zero
+                   let max_width = 1000;
                   // Helper function to update category animations and text
                   function updateCategoryAnimation(category, entryValue, prevEntryValue) {
                     const textElement = document.getElementById(`${category}-text`);
@@ -161,16 +165,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                     // Update text content with negative value
                     textElement.textContent = entryValue * -1;
-                  
-                    // Calculate max width, handling division by zero
-                    let max_width;
-                    console.log(prevEntryValue)
+                   
                     if (prevEntryValue === 'Infinity') {
                         max_width = 100; // Avoid infinite width
                     } else {
-                        max_width = 1000 / (prevEntryValue / entryValue);
+                      max_width = max_width / (prevEntryValue / entryValue);
+                      console.log("The max width: " , max_width)
                     }
-                  
+                    
+                    if(max_width ==0){
+                      max_width = 100
+                    }
                     // Apply animation and update keyframes
                     dataDisplay.style.animation = `${category} 1.5s ease-in-out forwards`;
                     updateKeyframes(category, max_width);
@@ -189,13 +194,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                       prevEntryValue = entryValue;
                     }
-                  
                     updateCategoryAnimation(category, entryValue, prevEntryValue);
                   }
-
-               
-
-                      
 
                 };
                 reader.readAsText(file);
