@@ -52,10 +52,66 @@ h1 , body{
 #upload_file:active {
     background-color: #910554;
 }
-#total_spent , #current_amount,  #withdrawn{
-    display: none;
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    height: 100vh;           
+    margin: 0;
+    text-align: center;     
 }
 
+
+#main_info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#main_info button {
+    padding: 10px 20px;
+}
+
+
+#catogories {
+    margin-top: 20px;
+}
+
+
+#catogories div {
+    margin: 10px 0;
+}
+
+
+#catogories h5 {
+    display: inline-block;
+    margin-right: 10px;
+}
+#total_spent ,   #withdrawn , #income{
+    display: none;
+    border-color: #4c6389;
+    border-width: 3px;
+    background-color: transparent;
+    width: 150px;
+    height: 50px;
+    transition: 0.3s;
+    color: white;
+
+}
+#total_spent:hover ,  #withdrawn:hover , #income:hover{
+    border-color:  #4c6389;
+    box-shadow: inset 0 -3.35em 0 0 #4c6389;
+    transform: translateY(-0.45em);
+    
+}
+
+#current_amount , #total{
+    display: none;
+}
 #catogories{
     display: none;
 }
@@ -64,7 +120,7 @@ h1 , body{
     --my-start-width: 100px;
     --my-end-width: 1350px;
 }
-#food, #transport , #retail , #bills , #home , #other , #income{
+#food, #transport , #retail , #bills , #home , #other {
     height: 40px;
     background-color: transparent;
     border-color: #3498db;
@@ -80,7 +136,7 @@ h1 , body{
  
 }
 
-#food-text  , #transport-text , #retail-text , #bills-text , #home-text , #other-text , #income-text{
+#food-text  , #transport-text , #retail-text , #bills-text , #home-text , #other-text{
     position: absolute;
     right: 0; 
     font-size: 14px;
@@ -174,22 +230,6 @@ h1 , body{
         width: var(--my-end-width);
     }
 }
-#income{
-    border-color: #5a2f3e;
-}
-#income:hover {
-    box-shadow: inset 0 -3.25em 0 0 #5a2f3e;  
-}
-@keyframes other {
-    0% {
-        width: var(--my-start-width);
-   
-    }
-    100% {
-        width: var(--my-end-width);
-    }
-}
-
 #other{
     border-color: #3498dd;
 }

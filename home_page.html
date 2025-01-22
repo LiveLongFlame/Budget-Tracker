@@ -15,11 +15,14 @@
         <br><br>
         <button id="upload_file" type="submit">Upload File</button>
     </form>
-    <h3 id="total_spent">Total Spent:$ <span id="amount">0</span></h3>
-    <h3 id="withdrawn">Withdrawn:$ <span id="withdrwan_amount">0</span></h3>
-    <h3 id="current_amount">Current account:$ <span id="current">0</span></h3>
+    <center><u><h3 id="current_amount"> Current account:$</u> <span id="current">0</span></h3></center>
+    <div id="main_info">
+    <button id="total_spent" onclick="total_spent_btn()">Total Spent</button>
+    <button id="income" onclick="income_info()" >Income & Deposits:$+ <span  id="income-text">0</span></button>
+    <button id="withdrawn">Withdrawn:$ <span id="withdrwan_amount">0</span></button>
+    </div>
+    <center><h3 id="total">Total:$ <span id="total-number">0</span></h3></center>
     <div id="catogories">
-        <div id="income" onclick="income_info()" ><h5>Income & Deposits</h5><span  id="income-text">0</span></div>
         <div id="food" onclick="food_info()" ><h5  id="catogire_tittle">Food & Beverage</h5><span  id="food-text">0</span></div>
         <div id="transport" onclick="transport_info()"><h5>Transport & Travel</h5><span id="transport-text">0</span></div>
         <div id="retail" onclick="retail_info()"><h5>Retail & Personal</h5><span id="retail-text">0</span></div>

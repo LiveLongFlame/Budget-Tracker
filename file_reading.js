@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
 
                       console.log(income)
-                      const catogories = {"food": food ,  "income":income, "transport":transport , "retail":retail , "bills":bills , "home":home ,"other":other }
+                      const catogories = {"food": food , "transport":transport , "retail":retail , "bills":bills , "home":home ,"other":other }
                       const categoryArray = Object.entries(catogories);
 
                       //* Insertion sort algorithm to orgainse array 
@@ -88,30 +88,36 @@ document.addEventListener('DOMContentLoaded', function() {
                       console.log(sortedCategories)
                      //Shows the information when the user enters a valid file
                     const amount_text = document.getElementById("total_spent");
-                    const current_amount_text = document.getElementById("current_amount")
                     const withdrawn_info = document.getElementById("withdrawn")
-                    amount_text.style.display = "block";
+                    const income_info = document.getElementById("income");
+                    const current_amount_text = document.getElementById("current_amount")
                     current_amount_text.style.display = "block";
+                    amount_text.style.display = "block";
                     withdrawn_info.style.display = "block";
+                    income_info.style.display = "block";
 
                     //prints out the total amount spent onto the html page
-                    const amount = document.getElementById("amount");
+                    const amount = document.getElementById("total-number");
                     amount.textContent = spent.toFixed(2) * -1;
                     //prints out the amount currenlty inside the account
-                    const current = document.getElementById("current")
-                    current.textContent = rows[1][4];
+                     const current = document.getElementById("current");
+                     current.textContent = rows[1][4]; 
+                    
                       
                     //prints out withdrawn amoutn of money
                     const withdrawn = document.getElementById("withdrwan_amount")
                     withdrawn.textContent = withdrawals *-1;
+
+                    //prints out the the Income amount 
+                    const income_text= document.getElementById("income-text")
+                    income_text.textContent = income;
                     //*Catogorire side bar: 
                     //* in order to get the difference of each catogorire we divide the largest value of index 0(1)
                     //*by the next index 1(i+1). 
                     //*then we divide that difference of the max which would be 1000px
                     //*you keep going untill its done
 
-                    const items = document.getElementById("catogories")
-                    items.style.display = "block";
+                 
 
                     function graph(catogoire, entrie , preventrie){
                       let max_width = 1300 / (entrie / preventrie);
@@ -176,4 +182,12 @@ function other_info(){
 
 function income_info(){
   console.log("Hell this is the income_info")
+}
+
+function total_spent_btn(){
+  const total = document.getElementById("total")
+  total.style.display = "block";
+
+  const items = document.getElementById("catogories")
+  items.style.display = "block";
 }
