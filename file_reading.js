@@ -80,12 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
                       
                       // Convert the sorted array back into an object
                       const sortedCategories = Object.fromEntries(categoryArray);
-                      
-                      /////////////////
-                      console.log(sortedCategories);
-                      /////////////////////
-
-                    //Shows the information when the user enters a valid file
+                     //Shows the information when the user enters a valid file
                     const amount_text = document.getElementById("total_spent");
                     const current_amount_text = document.getElementById("current_amount")
                     amount_text.style.display = "block";
@@ -114,7 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
                       }else if(max_width < 100){
                         max_width = 100 + (100 - max_width)
                       }
-                      console.log("This the the max_width: " , max_width)
                       const item = document.getElementById(catogoire);
                       const item_text = document.getElementById(`${catogoire}-text`)
                       item_text.textContent = '$' + preventrie * -1;
@@ -129,11 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
                       graph(key , entries[0][1], value);
                       console.log(`Key: ${key}, Value: ${value}`);
                     }
-
-                   
-                   
-                    
-                    
                 };
                 reader.readAsText(file);
         } else {
