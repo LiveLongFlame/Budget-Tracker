@@ -278,6 +278,8 @@ document.addEventListener("DOMContentLoaded", function () {
         gen_table("food_data", 2, "Food & Beverage", "");
         gen_table("transport_table", 2, "Transport & Travel", "");
         gen_table("retail_table", 2, "Retail & Personal", "");
+        gen_table("bills_table", 2, "Bills & Payments", "");
+        gen_table("home_table", 2, "Home & Property", "");
       };
       reader.readAsText(file);
     } else {
@@ -343,15 +345,49 @@ function retail_info() {
 }
 
 function bills_info() {
-  console.log("Hello this is the bills_info");
+  const food_div = document.getElementById("food_div");
+  food_div.style.display = "none";
+  const transport_div = document.getElementById("transport_div");
+  transport_div.style.display = "none";
+  const retail_div = document.getElementById("retail_div");
+  retail_div.style.display = "none";
+
+  const bills_table = document.getElementById("bills_table");
+  bills_table.style.display = "table";
+
+  const bills_div = document.getElementById("bills_div");
+
+  if (bills_div.style.display === "none" || bills_div.style.display === "") {
+    bills_div.style.display = "block";
+  } else {
+    bills_div.style.display = "none";
+  }
 }
 
 function home_info() {
-  console.log("Hello this is the home_info");
+  const food_div = document.getElementById("food_div");
+  food_div.style.display = "none";
+  const transport_div = document.getElementById("transport_div");
+  transport_div.style.display = "none";
+  const retail_div = document.getElementById("retail_div");
+  retail_div.style.display = "none";
+  const bills_div = document.getElementById("bills_div");
+  bills_div.style.display = "none";
+
+  const home_table = document.getElementById("home_table");
+  home_table.style.display = "table";
+
+  const home_div = document.getElementById("home_div");
+
+  if (home_div.style.display === "none" || home_div.style.display === "") {
+    home_div.style.display = "block";
+  } else {
+    home_div.style.display = "none";
+  }
 }
 
 function other_info() {
-  console.log("Hello this is the other_info");
+  //* Other does not need table however in future might to add catgory
 }
 
 function total_spent_btn() {

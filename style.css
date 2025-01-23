@@ -344,14 +344,35 @@ table td:nth-child(2):hover {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* *Catogory table desgins  */
+#food_data th , #transport_table , #retail_table , #bills_table , #home_table {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#food_data tr:nth-child(odd) , #transport_table tr:nth-child(odd) , #retail_table  tr:nth-child(odd) ,#bills_table  tr:nth-child(odd) , #home_table tr:nth-child(odd) {
+    background-color: transparent;
+}
+
+#food_data tr:nth-child(even) , #transport_table tr:nth-child(even) , #retail_table tr:nth-child(even) , #bills_table  tr:nth-child(even), #home_table tr:nth-child(even){
+    background-color: transparent; 
+}
+
+#food_data tr:hover td:nth-child(2) , #transport_table tr:hover td:nth-child(2) , #retail_table tr:hover td:nth-child(2) , #bills_table tr:hover td:nth-child(2), #home_table tr:hover td:nth-child(2) {
+    background-color: #e2252b; 
+    color: #ffffff; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#food_data td:nth-child(2):hover , #transport_table td:nth-child(2):hover ,#retail_table td:nth-child(2):hover ,#bills_table td:nth-child(2):hover,#home_table td:nth-child(2):hover {
+    background-color: #e2252b; 
+    color: #ffffff; 
+    font-weight: bold; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 /* *Food Data table  */
 #food_data{ 
     background-color: transparent;
     border: 1px solid white;
-}
-#food_data th , #transport_table , #retail_table{
-    text-transform: uppercase;
-    font-weight: bold;
 }
 
 #food_data tr , #food_data th ,  #food_data td{
@@ -359,26 +380,6 @@ table td:nth-child(2):hover {
     border: 1px solid white;
 }
 
-#food_data tr:nth-child(odd) , #transport_table tr:nth-child(odd) , #retail_table  tr:nth-child(odd){
-    background-color: transparent;
-}
-
-#food_data tr:nth-child(even) , #transport_table tr:nth-child(even) , #retail_table tr:nth-child(even){
-    background-color: transparent; 
-}
-
-#food_data tr:hover td:nth-child(2) , #transport_table tr:hover td:nth-child(2) , #retail_table tr:hover td:nth-child(2){
-    background-color: #e2252b; 
-    color: #ffffff; 
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#food_data td:nth-child(2):hover , #transport_table td:nth-child(2):hover ,#retail_table td:nth-child(2):hover {
-    background-color: #e2252b; 
-    color: #ffffff; 
-    font-weight: bold; 
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
 
 /* *Transport Data table  */
 #transport_table{ 
@@ -400,6 +401,27 @@ table td:nth-child(2):hover {
     background-color: transparent;
     border: 1px solid purple;
 }
+
+/* *Bills Data table  */
+#bills_table{ 
+    background-color: transparent;
+    border: 1px solid green;
+}
+#bills_table tr , #bills_table th ,  #bills_table td{
+    background-color: transparent;
+    border: 1px solid green;
+}
+/* *Home Data table  */
+#home_table{ 
+    background-color: transparent;
+    border: 1px solid #a52a2a;
+}
+#home_table tr , #home_table th ,  #home_table td{
+    background-color: transparent;
+    border: 1px solid #a52a2a;
+}
+
+
 
 #error{
     color: red;
