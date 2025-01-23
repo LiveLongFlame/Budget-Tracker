@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //?Can make the program more dynmatic instead of static
         gen_table("data_table", 3, "Income", "Deposits");
         gen_table("withdrawn_table", 2, "Withdrawals & Transfers", "");
-        gen_table("food_table", 2, "Food & Beverage", "");
+        gen_table("food_data", 2, "Food & Beverage", "");
       };
       reader.readAsText(file);
     } else {
@@ -285,12 +285,20 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function food_info() {
-  const food_table = document.getElementById("food_table");
-  food_table.style.display = "block";
+  const food_table = document.getElementById("food_data");
+  food_table.style.display = "table";
+
+  const wrapper = document.getElementsByClassName("wrapper")[0];
+
+  if (wrapper.style.display === "none" || wrapper.style.display === "") {
+    wrapper.style.display = "block";
+  } else {
+    wrapper.style.display = "none";
+  }
 }
 
 function transport_info() {
-  const food_table = document.getElementById("food_table");
+  const food_table = document.getElementById("food_data");
   food_table.style.display = "none";
 }
 
@@ -356,7 +364,7 @@ function income_info() {
   const withdrawn_table = document.getElementById("withdrawn_table");
   withdrawn_table.style.display = "none";
   const income_table = document.getElementById("data_table");
-  income_table.style.display = "table"; // Ensure table layout display
+  income_table.style.display = "table";
   income_table.style.opacity = "1";
   const income_text = document.getElementById("income_info");
   income_text.style.display = "block";
