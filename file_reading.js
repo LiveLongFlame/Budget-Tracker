@@ -214,17 +214,22 @@ document.addEventListener("DOMContentLoaded", function () {
         //* Function generates and add tables data according to each subheading
         function gen_table(table_name, col, catoegory1, catoegory2) {
           const table = document.getElementById(table_name);
-          //*clears table information so that new file data wont be appended
-          while (table.rows.length > 1) {
-            table.deleteRow(1);
-          }
-          //* detled sub-catoegory header in case file uplaoed intial had sub and the new uplaoed file has no sb
-          const headers = table.querySelectorAll("th");
-          for (let header of headers) {
-            if (header.textContent === "SubCategory") {
-              header.remove();
-            }
-          }
+          //*clears table
+          table.innerHTML = "";
+          const heading = document.createElement("tr");
+          const date = document.createElement("th");
+          date.textContent = "Date";
+          heading.appendChild(date);
+
+          const amount_header = document.createElement("th");
+          amount_header.textContent = "Amount";
+          heading.appendChild(amount_header);
+
+          const account_bal = document.createElement("th");
+          account_bal.textContent = "Account Balance";
+          heading.appendChild(account_bal);
+
+          table.appendChild(heading);
 
           if (rows[0][6] && rows[0][6].length > 1) {
             const sub_category_header = document.createElement("th");
@@ -247,8 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
               newRow.appendChild(dateCell);
 
               const amountCell = document.createElement("td");
-              // Prefix "$+" and set textContent
-              amountCell.textContent = rows[i][col];
+              amountCell.textContent = "$" + rows[i][col];
               amountCell.classList.add("amount");
               newRow.appendChild(amountCell);
 
