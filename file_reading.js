@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const file = fileInput.files[0];  
         if (file) {
-
+          sessionStorage.clear();  
+          localStorage.clear();    
                 const reader = new FileReader();
                 reader.onload = function (e) {
                     // Get the CSV text content
@@ -29,6 +30,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     //* Processing the information 
                     const table = document.getElementById("data_table");
+                    //*clears table information so that new file data wont be appended
+                    while (table.rows.length > 1) {
+                      table.deleteRow(1);
+                  }
+                  //* detled sub-catoegory header in case file uplaoed intial had sub and the new uplaoed file has no sb
+                  const headers = table.querySelectorAll('th');
+                  for (let header of headers) {
+                      if (header.textContent === "SubCategory") {
+                          header.remove();  // 
+                          break;  
+                      }
+                  }
                     let spent= 0;
                     let withdrawals = 0;
                     let food = 0;
