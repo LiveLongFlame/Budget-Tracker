@@ -247,7 +247,7 @@ body {
 }
 
 
-#data_table {
+table {
     width: 75%;
     margin: 20px auto; 
     border-collapse: collapse;
@@ -256,11 +256,11 @@ body {
     border-radius: 8px; 
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    display: none; /* Hidden by default */
+    display: none; 
     transition: transform 0.3s ease, opacity 0.3s ease; 
 }
 
-#data_table th, #data_table td {
+table th, table td {
     text-align: left;
     border: 1px solid #4c6389;
     padding: 12px; 
@@ -269,28 +269,28 @@ body {
     color: #ffffff; 
 }
 
-#data_table th {
+table th {
     background-color: #4c6389;
     color: #ffffff; 
     text-transform: uppercase; 
     font-weight: bold;
 }
 
-#data_table tr:nth-child(odd) {
+table tr:nth-child(odd) {
     background-color: #2c2c44;
 }
 
-#data_table tr:nth-child(even) {
+table tr:nth-child(even) {
     background-color: #252538; 
 }
 
-#data_table tr:hover {
+table tr:hover {
     background-color: #33334d;
     transform: scale(1.02); 
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-#data_table td {
+table td {
     transition: color 0.2s ease, background-color 0.2s ease;
 }
 
@@ -302,15 +302,15 @@ body {
     font-weight: bold; 
 }
 
-#data_table {
+table {
     animation: fadeIn 0.5s ease-in-out; 
 }
-#data_table tr:hover td:nth-child(2) {
+table tr:hover td:nth-child(2) {
     background-color: #41bc4f; 
     color: #ffffff; 
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-#data_table td:nth-child(2):hover {
+table td:nth-child(2):hover {
     background-color: #41bc4f; 
     color: #ffffff; 
     font-weight: bold; 
@@ -326,4 +326,17 @@ body {
         opacity: 1;
         transform: scale(1);
     }
+}
+
+#withdrawn_table tr:hover td:nth-child(2) {
+    background-color: #ffa500; 
+    color: #ffffff; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#withdrawn_table td:nth-child(2):hover {
+    background-color: #ffa500; 
+    color: #ffffff; 
+    font-weight: bold; 
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
