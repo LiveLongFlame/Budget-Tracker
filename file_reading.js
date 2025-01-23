@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     //prints out the amount currenlty inside the account
                      const current = document.getElementById("current");
                      current.textContent = rows[1][4]; 
+                     current.style.color = "#9551a6"
                     
                       
                     //prints out withdrawn amoutn of money
