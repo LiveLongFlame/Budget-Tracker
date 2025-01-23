@@ -180,14 +180,39 @@ function other_info(){
   console.log("Hello this is the other_info")
 }
 
-function income_info(){
-  console.log("Hell this is the income_info")
-}
+
 
 function total_spent_btn(){
+  const withdrawn = document.getElementById("withdrawn_info")
+  withdrawn.style.display = "none";
+  const income_text= document.getElementById("income_info")
+  income_text.style.display = "none"; 
   const total = document.getElementById("total")
   total.style.display = "block";
 
   const items = document.getElementById("catogories")
   items.style.display = "block";
+}
+
+function withdrawn_info(){
+  const total = document.getElementById("total")
+  total.style.display = "none";
+  const items = document.getElementById("catogories")
+  items.style.display = "none";
+  const income_text= document.getElementById("income_info")
+  income_text.style.display = "none"; 
+  const withdrawn = document.getElementById("withdrawn_info")
+  withdrawn.style.display = "block";
+}
+
+
+function income_info(){
+  const total = document.getElementById("total")
+  total.style.display = "none";
+  const items = document.getElementById("catogories")
+  items.style.display = "none";
+  const withdrawn = document.getElementById("withdrawn_info")
+  withdrawn.style.display = "none";
+  const income_text= document.getElementById("income_info")
+  income_text.style.display = "block"; 
 }

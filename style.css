@@ -109,7 +109,7 @@ body {
     
 }
 
-#current_amount , #total{
+#current_amount , #total , #income_info , #withdrawn_info{
     display: none;
 }
 #catogories{
