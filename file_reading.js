@@ -11,11 +11,33 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     //make sure that the files are not empty
     if (fileInput.length < 0) {
-      console.log("ERROR NO FILE PROVIDED");
+      alert("ERROR NO FILE PROVIDED");
       return;
     }
 
     const file = fileInput.files[0];
+
+    // Check if the file is a CSV by MIME type or file extension
+    const allowedTypes = ["text/csv", "application/vnd.ms-excel"];
+    const allowedExtensions = [".csv"];
+
+    // Check MIME type
+    if (!allowedTypes.includes(file.type)) {
+      error_msg =
+        "Please upload a valid CSV file (MIME type: text/csv or application/vnd.ms-excel).";
+    }
+
+    // Check file extension
+    const fileExtension = file.name.split(".").pop().toLowerCase();
+    if (!allowedExtensions.includes(`.${fileExtension}`)) {
+      error_msg = "Please upload a valid CSV file (.csv extension).";
+    }
+
+    // If there's an error message, display it
+    if (error_msg) {
+      alert(error_msg);
+      return; // Stop further processing if there's an error
+    }
     if (file) {
       sessionStorage.clear();
       localStorage.clear();
