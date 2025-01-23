@@ -349,7 +349,7 @@ table td:nth-child(2):hover {
     background-color: transparent;
     border: 1px solid white;
 }
-#food_data th , #transport_table{
+#food_data th , #transport_table , #retail_table{
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -359,21 +359,21 @@ table td:nth-child(2):hover {
     border: 1px solid white;
 }
 
-#food_data tr:nth-child(odd) , #transport_table tr:nth-child(odd) {
+#food_data tr:nth-child(odd) , #transport_table tr:nth-child(odd) , #retail_table  tr:nth-child(odd){
     background-color: transparent;
 }
 
-#food_data tr:nth-child(even) , #transport_table tr:nth-child(even) {
+#food_data tr:nth-child(even) , #transport_table tr:nth-child(even) , #retail_table tr:nth-child(even){
     background-color: transparent; 
 }
 
-#food_data tr:hover td:nth-child(2) , #transport_table tr:hover td:nth-child(2){
+#food_data tr:hover td:nth-child(2) , #transport_table tr:hover td:nth-child(2) , #retail_table tr:hover td:nth-child(2){
     background-color: #e2252b; 
     color: #ffffff; 
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#food_data td:nth-child(2):hover , #transport_table td:nth-child(2):hover {
+#food_data td:nth-child(2):hover , #transport_table td:nth-child(2):hover ,#retail_table td:nth-child(2):hover {
     background-color: #e2252b; 
     color: #ffffff; 
     font-weight: bold; 
@@ -388,6 +388,17 @@ table td:nth-child(2):hover {
 #transport_table tr , #transport_table th ,  #transport_table td{
     background-color: transparent;
     border: 1px solid orange;
+}
+
+
+/* *Retail Data table  */
+#retail_table{ 
+    background-color: transparent;
+    border: 1px solid purple;
+}
+#retail_table tr , #retail_table th ,  #retail_table td{
+    background-color: transparent;
+    border: 1px solid purple;
 }
 
 #error{

@@ -277,6 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
         gen_table("withdrawn_table", 2, "Withdrawals & Transfers", "");
         gen_table("food_data", 2, "Food & Beverage", "");
         gen_table("transport_table", 2, "Transport & Travel", "");
+        gen_table("retail_table", 2, "Retail & Personal", "");
       };
       reader.readAsText(file);
     } else {
@@ -288,7 +289,8 @@ document.addEventListener("DOMContentLoaded", function () {
 function food_info() {
   const transport_div = document.getElementById("transport_div");
   transport_div.style.display = "none";
-
+  const retail_div = document.getElementById("retail_div");
+  retail_div.style.display = "none";
   const food_table = document.getElementById("food_data");
   food_table.style.display = "table";
 
@@ -304,6 +306,8 @@ function food_info() {
 function transport_info() {
   const food_div = document.getElementById("food_div");
   food_div.style.display = "none";
+  const retail_div = document.getElementById("retail_div");
+  retail_div.style.display = "none";
 
   const transport_table = document.getElementById("transport_table");
   transport_table.style.display = "table";
@@ -321,7 +325,21 @@ function transport_info() {
 }
 
 function retail_info() {
-  console.log("Hello this is the retail_info");
+  const food_div = document.getElementById("food_div");
+  food_div.style.display = "none";
+  const transport_div = document.getElementById("transport_div");
+  transport_div.style.display = "none";
+
+  const retail_table = document.getElementById("retail_table");
+  retail_table.style.display = "table";
+
+  const retail_div = document.getElementById("retail_div");
+
+  if (retail_div.style.display === "none" || retail_div.style.display === "") {
+    retail_div.style.display = "block";
+  } else {
+    retail_div.style.display = "none";
+  }
 }
 
 function bills_info() {
