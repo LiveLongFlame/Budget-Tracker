@@ -109,7 +109,7 @@ body {
     
 }
 
-#current_amount , #total , #income_info , #withdrawn_info ,#error{
+#current_amount , #total , #income_info , #withdrawn_info ,#error , #food_div{
     display: none;
 }
 #catogories{
@@ -344,13 +344,12 @@ table td:nth-child(2):hover {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
-
+/* *Food Data table  */
 #food_data{ 
     background-color: transparent;
     border: 1px solid white;
 }
-#food_data th{
+#food_data th , #transport_table{
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -360,32 +359,42 @@ table td:nth-child(2):hover {
     border: 1px solid white;
 }
 
-#food_data tr:nth-child(odd) {
+#food_data tr:nth-child(odd) , #transport_table tr:nth-child(odd) {
     background-color: transparent;
 }
 
-#food_data tr:nth-child(even) {
+#food_data tr:nth-child(even) , #transport_table tr:nth-child(even) {
     background-color: transparent; 
 }
 
-#food_data tr:hover td:nth-child(2) {
+#food_data tr:hover td:nth-child(2) , #transport_table tr:hover td:nth-child(2){
     background-color: #e2252b; 
     color: #ffffff; 
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#food_data td:nth-child(2):hover {
+#food_data td:nth-child(2):hover , #transport_table td:nth-child(2):hover {
     background-color: #e2252b; 
     color: #ffffff; 
     font-weight: bold; 
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* *Transport Data table  */
+#transport_table{ 
+    background-color: transparent;
+    border: 1px solid orange;
+}
+#transport_table tr , #transport_table th ,  #transport_table td{
+    background-color: transparent;
+    border: 1px solid orange;
+}
+
 #error{
     color: red;
 }
 .wrapper{
-    height: 800px;
+    height: 500px;
     overflow: auto;
     display: none;
 }.wrapper::-webkit-scrollbar {
@@ -400,4 +409,8 @@ table td:nth-child(2):hover {
 
 .wrapper::-webkit-scrollbar-thumb:hover {
     background: #33334d;
+}
+
+#current_amount , #total , #income_info , #withdrawn_info ,#error , #food_div , #transport_div{
+    display: none;
 }
