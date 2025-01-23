@@ -21,6 +21,8 @@
     <button id="income" onclick="income_info()" >Income & Deposits</button>
     <button id="withdrawn" onclick="withdrawn_info()">Withdrawn</button>
     </div>
+
+ 
     <center><h3 id="total">Total:$ <span id="total-number">0</span></h3></center>
     <center><h3 id="income_info">Income & Deposits:$+<span  id="income-text">0</span></h3></center>
     <center><h3 id="withdrawn_info">Withdrawn:$<span id="withdrwan_amount">0</span></h3></center>
@@ -33,6 +35,14 @@
         <div id="other" onclick="other_info()"><h5>Other</h5><span id="other-text">0</span></div>
 
     </div>
+
+    <table id="data_table"> 
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Account Balance</th>
+        </tr>
+    </table>
     <script src="file_reading.js" ></script>
 </body>
 

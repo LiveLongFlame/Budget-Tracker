@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     let income =0;
                     //* Goes through each catogory of data and sets the values according to its catogotrie
                     for (let i = 0; i < rows.length; i++) {
-                      console.log(rows[i][5] , " amount " , rows[i][2])
                       if (!isNaN(Number(rows[i][2])) && rows[i][5] != "Withdrawals & Transfers") {
                         spent += Number(rows[i][2]);
                       }else if(!isNaN(Number(rows[i][2])) && rows[i][5] == "Withdrawals & Transfers"){
@@ -142,7 +141,36 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
 
 
+                    //*Populating with table data
+                    const table = document.getElementById("data_table");
+                    for (let i = 0; i < rows.length; i++) {
+                      if(!isNaN(Number(rows[i][3])) && rows[i][5] == "Income" ||  rows[i][5] == "Deposits"){
+                        console.log(" Date: " , rows[i][0] , " Income: " , rows[i][3] , " Balance: " , rows[i][4] )
 
+                         // Create a new row
+                        const newRow = document.createElement("tr");
+
+                        // Create and append cells for Date, Amount, and Balance
+                        const dateCell = document.createElement("td");
+                        dateCell.textContent = rows[i][0];
+                        newRow.appendChild(dateCell);
+
+                        const amountCell = document.createElement("td");
+                        // Prefix "$+" and set textContent
+                        amountCell.textContent = "$+" + rows[i][3];
+                        amountCell.classList.add("amount");
+                        newRow.appendChild(amountCell);
+
+                        const balanceCell = document.createElement("td");
+                        // Prefix "$" and set textContent
+                        balanceCell.textContent = "$" + rows[i][4];
+                        newRow.appendChild(balanceCell);
+
+                        // Append the row to the table
+                        table.appendChild(newRow);
+                        }
+
+                    }
                     
                     
                 };
@@ -187,6 +215,8 @@ function total_spent_btn(){
   withdrawn.style.display = "none";
   const income_text= document.getElementById("income_info")
   income_text.style.display = "none"; 
+   const income_table = document.getElementById("data_table")
+  income_table.style.display = "none"
   const total = document.getElementById("total")
   total.style.display = "block";
 
@@ -201,6 +231,8 @@ function withdrawn_info(){
   items.style.display = "none";
   const income_text= document.getElementById("income_info")
   income_text.style.display = "none"; 
+    const income_table = document.getElementById("data_table")
+  income_table.style.display = "none"
   const withdrawn = document.getElementById("withdrawn_info")
   withdrawn.style.display = "block";
 }
@@ -213,6 +245,11 @@ function income_info(){
   items.style.display = "none";
   const withdrawn = document.getElementById("withdrawn_info")
   withdrawn.style.display = "none";
+
+  const income_table = document.getElementById("data_table")
+  income_table.style.display = "table"
   const income_text= document.getElementById("income_info")
   income_text.style.display = "block"; 
+
+
 }

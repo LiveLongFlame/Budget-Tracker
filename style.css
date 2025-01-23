@@ -247,3 +247,41 @@ body {
 }
 
 
+#data_table {
+    width: 75%;
+    border-collapse: collapse;
+    border: 1px solid #4c6389;
+    transition: 0.3s ease;
+    display:none ;
+}
+
+#data_table th, #data_table td {
+    text-align: left;
+    border: 1px solid #4c6389;
+}
+
+#data_table th {
+    color: #FFFFFF;
+    border-color: #4c6389;
+    background-color: transparent;
+}
+
+#data_table tr {
+    transition: 0.3s ease;
+}
+
+#data_table tr:hover {
+    background-color: transparent; /* Keep background transparent */
+}
+
+#data_table tr:hover td {
+    border-color: #27702f; /* Change border color to #27702f */
+}
+
+#data_table tr:nth-child(even) {
+    transition: 0.3s ease;
+}
+
+.amount:hover{
+    color: #41bc4f;
+}
