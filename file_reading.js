@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
                       rows.push(elements);
                     }
 
-                    // Processing the information and caluating the total amount of money
+                    //* Processing the information 
+                    const table = document.getElementById("data_table");
                     let spent= 0;
                     let withdrawals = 0;
                     let food = 0;
@@ -37,6 +38,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     let retail = 0;
                     let other = 0;
                     let income =0;
+
+                      //?Checking if a subcatagory exsists in the csv if not then dont add it the table
+                     
+                      if (rows[0][6] && rows[0][6].length > 1) {
+                        const sub_category_header = document.createElement("th");
+                        sub_category_header.textContent = "SubCategory";  
+                        table.rows[0].appendChild(sub_category_header);  
+                      }
+
                     //* Goes through each catogory of data and sets the values according to its catogotrie
                     for (let i = 0; i < rows.length; i++) {
                       if (!isNaN(Number(rows[i][2])) && rows[i][5] != "Withdrawals & Transfers") {
@@ -59,6 +69,40 @@ document.addEventListener('DOMContentLoaded', function() {
                       }else{
                         other += Number(rows[i][2]);
                       }
+                      //* Adds information and populates table for income information and data
+                      if(!isNaN(Number(rows[i][3])) && rows[i][5] == "Income" ||  rows[i][5] == "Deposits"){
+                        console.log(" Date: " , rows[i][0] , " Income: " , rows[i][3] , " Balance: " , rows[i][4] , " Sub-Catogry: " , rows[i][6] )
+
+                         // Create a new row
+                        const newRow = document.createElement("tr");
+
+                        // Create and append cells for Date, Amount, and Balance
+                        const dateCell = document.createElement("td");
+                        dateCell.textContent = rows[i][0];
+                        newRow.appendChild(dateCell);
+
+                        const amountCell = document.createElement("td");
+                        // Prefix "$+" and set textContent
+                        amountCell.textContent = "$+" + rows[i][3];
+                        amountCell.classList.add("amount");
+                        newRow.appendChild(amountCell);
+
+                        const balanceCell = document.createElement("td");
+                        // Prefix "$" and set textContent
+                        balanceCell.textContent = "$" + rows[i][4];
+                        newRow.appendChild(balanceCell);
+
+                        console.log(rows[i][6].length)
+                        if (rows[i][6].length > 1) {
+                        
+                          const sub_category = document.createElement("td");
+                          sub_category.textContent = rows[i][6];
+                          newRow.appendChild(sub_category);
+                        }
+                        
+                        // Append the row to the table
+                        table.appendChild(newRow);
+                        }
                     }
                     if(isNaN(other)){
                       other = 0;
@@ -140,51 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
                       console.log(`Key: ${key}, Value: ${value}`);
                     }
 
-                    
-                    //*Populating with table data
-                    const table = document.getElementById("data_table");
-                    if (rows[0][6] && rows[0][6].length > 1) {
-                      const sub_category_header = document.createElement("th");
-                      sub_category_header.textContent = "SubCategory";  
-                      table.rows[0].appendChild(sub_category_header);  
-                    }
-                    for (let i = 0; i < rows.length; i++) {
-                      if(!isNaN(Number(rows[i][3])) && rows[i][5] == "Income" ||  rows[i][5] == "Deposits"){
-                        console.log(" Date: " , rows[i][0] , " Income: " , rows[i][3] , " Balance: " , rows[i][4] , " Sub-Catogry: " , rows[i][6] )
-
-                         // Create a new row
-                        const newRow = document.createElement("tr");
-
-                        // Create and append cells for Date, Amount, and Balance
-                        const dateCell = document.createElement("td");
-                        dateCell.textContent = rows[i][0];
-                        newRow.appendChild(dateCell);
-
-                        const amountCell = document.createElement("td");
-                        // Prefix "$+" and set textContent
-                        amountCell.textContent = "$+" + rows[i][3];
-                        amountCell.classList.add("amount");
-                        newRow.appendChild(amountCell);
-
-                        const balanceCell = document.createElement("td");
-                        // Prefix "$" and set textContent
-                        balanceCell.textContent = "$" + rows[i][4];
-                        newRow.appendChild(balanceCell);
-
-                        console.log(rows[i][6].length)
-                        if (rows[i][6].length > 1) {
-                        
-                          const sub_category = document.createElement("td");
-                          sub_category.textContent = rows[i][6];
-                          newRow.appendChild(sub_category);
-                        }
-                        
-                        // Append the row to the table
-                        table.appendChild(newRow);
-                        }
-
-                    }
-                    
+                                       
                     
                 };
                 reader.readAsText(file);
