@@ -344,6 +344,30 @@ table td:nth-child(2):hover {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
+
+#food_data{ 
+    background-color: transparent;
+    border: 1px solid white;
+}
+#food_data th{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#food_data tr , #food_data th ,  #food_data td{
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+#food_data tr:nth-child(odd) {
+    background-color: transparent;
+}
+
+#food_data tr:nth-child(even) {
+    background-color: transparent; 
+}
+
 #food_data tr:hover td:nth-child(2) {
     background-color: #e2252b; 
     color: #ffffff; 
@@ -356,8 +380,6 @@ table td:nth-child(2):hover {
     font-weight: bold; 
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-/* todo: Change food table css to match the asethic of the button */
 
 #error{
     color: red;
