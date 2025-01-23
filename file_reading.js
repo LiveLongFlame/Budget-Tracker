@@ -316,7 +316,7 @@ function total_spent_btn() {
   const total = document.getElementById("total");
   total.style.display = "block";
   const total_number = document.getElementById("total-number");
-  total_number.style.color = "#e95ba1";
+  total_number.style.color = "#e2252b";
 
   const items = document.getElementById("catogories");
   items.style.display = "block";
