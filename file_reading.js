@@ -275,6 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //?Can make the program more dynmatic instead of static
         gen_table("data_table", 3, "Income", "Deposits");
         gen_table("withdrawn_table", 2, "Withdrawals & Transfers", "");
+        gen_table("food_table", 2, "Food & Beverage", "");
       };
       reader.readAsText(file);
     } else {
@@ -284,11 +285,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function food_info() {
-  console.log("Hello this is the food_info");
+  const food_table = document.getElementById("food_table");
+  food_table.style.display = "block";
 }
 
 function transport_info() {
-  console.log("Hello this is the transport_info");
+  const food_table = document.getElementById("food_table");
+  food_table.style.display = "none";
 }
 
 function retail_info() {
