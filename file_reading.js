@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const fileInput = document.getElementById("file");
 
   form.addEventListener("submit", function (event) {
+    let error_msg = "";
+    const error = document.getElementById("error_msg");
+    error.innerText = "";
+    const error_text = document.getElementById("error");
+    error_text.style.display = "none";
     event.preventDefault();
     //make sure that the files are not empty
     if (fileInput.length < 0) {
@@ -41,9 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let retail = 0;
         let other = 0;
         let income = 0;
-
+        data = rows;
         //?Checking if a subcatagory exsists in the csv if not then dont add it the table
-
+        //!Error found when the csv is wrong and indexs. Should print error to console to fix solution
         //* Goes through each catogory of data and sets the values according to its catogotrie
         for (let i = 0; i < rows.length; i++) {
           if (
@@ -59,33 +64,45 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           if (!isNaN(Number(rows[i][2])) && rows[i][5] == "Food & Beverage") {
             food += Number(rows[i][2]);
-          } else if (
+          }
+          if (
             !isNaN(Number(rows[i][2])) &&
             rows[i][5] == "Transport & Travel"
           ) {
             transport += Number(rows[i][2]);
-          } else if (
-            !isNaN(Number(rows[i][2])) &&
-            rows[i][5] == "Retail & Personal"
-          ) {
+          }
+          if (!isNaN(Number(rows[i][2])) && rows[i][5] == "Retail & Personal") {
             retail += Number(rows[i][2]);
-          } else if (
-            !isNaN(Number(rows[i][2])) &&
-            rows[i][5] == "Bills & Payments"
-          ) {
+          }
+          if (!isNaN(Number(rows[i][2])) && rows[i][5] == "Bills & Payments") {
             bills += Number(rows[i][2]);
-          } else if (
-            !isNaN(Number(rows[i][2])) &&
-            rows[i][5] == "Home & Property"
-          ) {
+          }
+          if (!isNaN(Number(rows[i][2])) && rows[i][5] == "Home & Property") {
             home += Number(rows[i][2]);
-          } else if (
+          }
+          if (
             (!isNaN(Number(rows[i][3])) && rows[i][5] == "Income") ||
             rows[i][5] == "Deposits"
           ) {
             income += Number(rows[i][3]);
           } else {
             other += Number(rows[i][2]);
+          }
+
+          if (i > 0 && isNaN(rows[i][2]) && isNaN(rows[i][3])) {
+            for (let j = 0; j < rows[i].length; j++) {
+              if (rows[i][j].length > 5) {
+                error_msg += `${rows[i][j]}, `;
+              }
+            }
+
+            // If there's any error message, show it in an alert
+            if (error_msg) {
+              const error = document.getElementById("error_msg");
+              error.innerText = error_msg;
+              const error_text = document.getElementById("error");
+              error_text.style.display = "block";
+            }
           }
         }
         if (isNaN(other)) {
@@ -119,7 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Convert the sorted array back into an object
         const sortedCategories = Object.fromEntries(categoryArray);
 
-        console.log(sortedCategories);
         //Shows the information when the user enters a valid file
         const amount_text = document.getElementById("total_spent");
         const withdrawn_info = document.getElementById("withdrawn");
@@ -170,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const key = entries[i][0];
           const value = entries[i][1];
           graph(key, entries[0][1], value);
-          console.log(`Key: ${key}, Value: ${value}`);
+          // console.log(`Key: ${key}, Value: ${value}`);
         }
 
         //* Function generates and add tables data according to each subheading
@@ -200,17 +216,6 @@ document.addEventListener("DOMContentLoaded", function () {
               (!isNaN(Number(rows[i][col])) && rows[i][5] == catoegory1) ||
               rows[i][5] == catoegory2
             ) {
-              console.log(
-                " Date: ",
-                rows[i][0],
-                " Income: ",
-                rows[i][3],
-                " Balance: ",
-                rows[i][4],
-                " Sub-Catogry: ",
-                rows[i][6]
-              );
-
               // Create a new row
               const newRow = document.createElement("tr");
 
@@ -230,7 +235,6 @@ document.addEventListener("DOMContentLoaded", function () {
               balanceCell.textContent = "$" + rows[i][4];
               newRow.appendChild(balanceCell);
 
-              console.log(rows[i][6].length);
               if (rows[i][6].length > 1) {
                 const sub_category = document.createElement("td");
                 sub_category.textContent = rows[i][6];
@@ -290,7 +294,7 @@ function total_spent_btn() {
   const total = document.getElementById("total");
   total.style.display = "block";
   const total_number = document.getElementById("total-number");
-  total_number.style.color = "red";
+  total_number.style.color = "#e95ba1";
 
   const items = document.getElementById("catogories");
   items.style.display = "block";

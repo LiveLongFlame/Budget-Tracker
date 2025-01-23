@@ -109,7 +109,7 @@ body {
     
 }
 
-#current_amount , #total , #income_info , #withdrawn_info{
+#current_amount , #total , #income_info , #withdrawn_info ,#error{
     display: none;
 }
 #catogories{
@@ -339,4 +339,8 @@ table td:nth-child(2):hover {
     color: #ffffff; 
     font-weight: bold; 
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#error{
+    color: red;
 }
