@@ -245,6 +245,8 @@ function total_spent_btn(){
   income_table.style.display = "none"
   const total = document.getElementById("total")
   total.style.display = "block";
+  const total_number = document.getElementById("total-number")
+  total_number.style.color ="red";
 
   const items = document.getElementById("catogories")
   items.style.display = "block";
@@ -261,6 +263,8 @@ function withdrawn_info(){
   income_table.style.display = "none"
   const withdrawn = document.getElementById("withdrawn_info")
   withdrawn.style.display = "block";
+  const withdrwan_amount = document.getElementById("withdrwan_amount")
+  withdrwan_amount.style.color = "#ffa500";
 }
 
 
@@ -277,6 +281,8 @@ function income_info(){
   income_table.style.opacity = "1";
   const income_text= document.getElementById("income_info")
   income_text.style.display = "block"; 
+  const income_number = document.getElementById("income-text")
+  income_number.style.color = "#41bc4f";
 
 
 }
