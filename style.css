@@ -249,39 +249,81 @@ body {
 
 #data_table {
     width: 75%;
+    margin: 20px auto; 
     border-collapse: collapse;
     border: 1px solid #4c6389;
-    transition: 0.3s ease;
-    display:none ;
+    background-color: #1e1e2f; 
+    border-radius: 8px; 
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    display: none; /* Hidden by default */
+    transition: transform 0.3s ease, opacity 0.3s ease; 
 }
 
 #data_table th, #data_table td {
     text-align: left;
     border: 1px solid #4c6389;
+    padding: 12px; 
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #ffffff; 
 }
 
 #data_table th {
-    color: #FFFFFF;
-    border-color: #4c6389;
-    background-color: transparent;
+    background-color: #4c6389;
+    color: #ffffff; 
+    text-transform: uppercase; 
+    font-weight: bold;
 }
 
-#data_table tr {
-    transition: 0.3s ease;
-}
-
-#data_table tr:hover {
-    background-color: transparent; /* Keep background transparent */
-}
-
-#data_table tr:hover td {
-    border-color: #27702f; /* Change border color to #27702f */
+#data_table tr:nth-child(odd) {
+    background-color: #2c2c44;
 }
 
 #data_table tr:nth-child(even) {
-    transition: 0.3s ease;
+    background-color: #252538; 
 }
 
-.amount:hover{
-    color: #41bc4f;
+#data_table tr:hover {
+    background-color: #33334d;
+    transform: scale(1.02); 
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#data_table td {
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.amount:hover {
+    color: #41bc4f; 
+}
+
+.amount {
+    font-weight: bold; 
+}
+
+#data_table {
+    animation: fadeIn 0.5s ease-in-out; 
+}
+#data_table tr:hover td:nth-child(2) {
+    background-color: #41bc4f; 
+    color: #ffffff; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+#data_table td:nth-child(2):hover {
+    background-color: #41bc4f; 
+    color: #ffffff; 
+    font-weight: bold; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

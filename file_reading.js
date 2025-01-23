@@ -140,12 +140,17 @@ document.addEventListener('DOMContentLoaded', function() {
                       console.log(`Key: ${key}, Value: ${value}`);
                     }
 
-
+                    
                     //*Populating with table data
                     const table = document.getElementById("data_table");
+                    if (rows[0][6] && rows[0][6].length > 1) {
+                      const sub_category_header = document.createElement("th");
+                      sub_category_header.textContent = "SubCategory";  
+                      table.rows[0].appendChild(sub_category_header);  
+                    }
                     for (let i = 0; i < rows.length; i++) {
                       if(!isNaN(Number(rows[i][3])) && rows[i][5] == "Income" ||  rows[i][5] == "Deposits"){
-                        console.log(" Date: " , rows[i][0] , " Income: " , rows[i][3] , " Balance: " , rows[i][4] )
+                        console.log(" Date: " , rows[i][0] , " Income: " , rows[i][3] , " Balance: " , rows[i][4] , " Sub-Catogry: " , rows[i][6] )
 
                          // Create a new row
                         const newRow = document.createElement("tr");
@@ -166,6 +171,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         balanceCell.textContent = "$" + rows[i][4];
                         newRow.appendChild(balanceCell);
 
+                        console.log(rows[i][6].length)
+                        if (rows[i][6].length > 1) {
+                        
+                          const sub_category = document.createElement("td");
+                          sub_category.textContent = rows[i][6];
+                          newRow.appendChild(sub_category);
+                        }
+                        
                         // Append the row to the table
                         table.appendChild(newRow);
                         }
@@ -246,8 +259,9 @@ function income_info(){
   const withdrawn = document.getElementById("withdrawn_info")
   withdrawn.style.display = "none";
 
-  const income_table = document.getElementById("data_table")
-  income_table.style.display = "table"
+  const income_table = document.getElementById("data_table");
+  income_table.style.display = "table"; // Ensure table layout display
+  income_table.style.opacity = "1";
   const income_text= document.getElementById("income_info")
   income_text.style.display = "block"; 
 
