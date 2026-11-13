@@ -13,3 +13,9 @@ Any other order and the program will not work
 Please enjoy my program :) 
 
 P.S: To run the program run node app.js
+
+
+🚨🚨UPGRADE PLAN🚨🚨
+## Idea
+This project can be improved with showing graphs, budget predictions, budgetting options for; week, 2-weeks, month, year. With further ideas of adding AI model to predict pricing and overall income... could add ai helper with budgeting
+
